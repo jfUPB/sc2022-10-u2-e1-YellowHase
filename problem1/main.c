@@ -36,7 +36,14 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    
+    int arr1 [5];
+    printf("Array numbers: ");
+    if (fgets(arr1, 5, stdin) ! = NULL);
+    {
+        arr1[ strlen(arr1)-1] = 0;
+        printArr1(arr1);
+}
+
 }
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
