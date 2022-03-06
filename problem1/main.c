@@ -83,6 +83,29 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
 
            if(v1 == v2)
            {
+               int condicional= 0:
+
+               for(int h=0; h<10; h++)
+               {
+                   if(v1 == valores[h])
+                   {
+                       h=10;
+                       condicional = -1;
+                    }
+                }
+
+                if( condicional == 0)
+                {
+                    arrOut->size++;
+                    valores [counter]=v1;
+                    counter++;
+                }   
+            }
+        }
+    }  
+
+                    
+
 }
 
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
