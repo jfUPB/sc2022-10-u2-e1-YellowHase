@@ -43,11 +43,11 @@ void printArray(struct array *parr)
 void getArray(struct array *parr)
 {
     int cantidad; 
-    char tamaño[30];
+    char tamano[30];
 
-    if (fgets(tamaño, sizeof(tamaño), stdin) ! = NULL){
-        tamaño [strlen(tamaño) -1] = 0;
-        if (sscanf(tamaño, "%d", &cantidad) ==1){
+    if (fgets(tamano, sizeof(tamano), stdin) ! = NULL){
+        tamano [strlen(tamano) -1] = 0;
+        if (sscanf(tamano, "%d", &cantidad) ==1){
 
      
             parr->size = cantidad;
@@ -56,10 +56,10 @@ void getArray(struct array *parr)
 
             for( i= 0; i< parr->size; i++){
 
-                if (fgets(tamaño, sizeof(tamaño), stdin) ! = NULL){
-                    tamaño[strlen(tamaño) -1] = 0;
+                if (fgets(tamano, sizeof(tamano), stdin) ! = NULL){
+                    tamano[strlen(tamano) -1] = 0;
 
-                    if(sscanf(tamaño, "%d", &cantidad) ==1){
+                    if(sscanf(tamano, "%d", &cantidad) ==1){
                         *(parr->pdata+i) = cantidad; 
                     }
                 }
