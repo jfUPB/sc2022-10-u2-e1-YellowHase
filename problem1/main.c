@@ -45,7 +45,7 @@ void getArray(struct array *parr)
     int cantidad; 
     char tamano[30];
 
-    if (fgets(tamano, sizeof(tamano), stdin) ! = NULL){
+    if (fgets(tamano, sizeof(tamano), stdin)!= NULL){
         tamano [strlen(tamano) -1] = 0;
         if (sscanf(tamano, "%d", &cantidad) ==1){
 
@@ -54,9 +54,9 @@ void getArray(struct array *parr)
             parr->pdata = malloc(parr->size * sizeof(int));
             
 
-            for( i= 0; i< parr->size; i++){
+            for( int i= 0; i< parr->size; i++){
 
-                if (fgets(tamano, sizeof(tamano), stdin) ! = NULL){
+                if (fgets(tamano, sizeof(tamano), stdin)!= NULL){
                     tamano[strlen(tamano) -1] = 0;
 
                     if(sscanf(tamano, "%d", &cantidad) ==1){
@@ -85,7 +85,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
 
            if(v1 == v2)
            {
-               int condicional= 0:
+               int condicional= 0;
 
                for(int h=0; h<10; h++)
                {
