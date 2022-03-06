@@ -23,26 +23,37 @@ void freeMemory(struct array *, struct array *, struct array *);
 void initArray(struct array *arr){
     arr->pdata = NULL;
     arr->size = -1;
+    
 }
 
 void printArray(struct array *parr)
 {
+   
+
     for (int i = 0; i < parr->size; i++)
     {
         printf("%d ", parr->pdata[i]);
     }
     printf("\n");
+
+    
+    
 }
 
 void getArray(struct array *parr)
 {
-    int arr1 [5];
-    printf("Array numbers: ");
-    if (fgets(arr1, 5, stdin) ! = NULL);
-    {
-        arr1[ strlen(arr1)-1] = 0;
-        printArr1(arr1);
-}
+    int size; 
+    char data[30];
+
+    if (fgets(size, sizeof(size), stdin) ! = NULL);
+
+    }    
+
+
+
+    
+   
+
 
 }
 
