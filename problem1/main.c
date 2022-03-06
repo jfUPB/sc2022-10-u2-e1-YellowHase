@@ -45,18 +45,25 @@ void getArray(struct array *parr)
     int tamaño; 
     char cantidad[30];
 
-    if (fgets(tamaño, sizeof(tamaño), stdin) ! = NULL);{
+    if (fgets(tamaño, sizeof(tamaño), stdin) ! = NULL){
         cantidad [strlen(tamaño) -1] = 0;
-        if (scanf(tamaño, "%d", &cantidad) ==1);{
-
+        if (scanf(tamaño, "%d", &cantidad) ==1){
+     
             parr->pdata = malloc(parr->size * sizeof(int));
-    }    
+            parr->size = tamaño;
 
+            for( i= 0; i< parr->size; i+1){
 
+                if (fgets(tamaño, sizeof(tamaño), stdin) ! = NULL){
+                    tamaño[strlen(tamaño) -1] = 0;
 
-    
-   
-
+                    if(scanf(tamaño, "%d", &cantidad) ==1){
+                        *(parr->pdata+i) = cantidad; 
+                    }
+                }
+            }
+        }
+    }              
 
 }
 
