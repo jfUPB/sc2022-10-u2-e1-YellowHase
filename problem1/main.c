@@ -42,11 +42,14 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    int size; 
-    char data[30];
+    int tamaño; 
+    char cantidad[30];
 
-    if (fgets(size, sizeof(size), stdin) ! = NULL);
+    if (fgets(tamaño, sizeof(tamaño), stdin) ! = NULL);{
+        cantidad [strlen(tamaño) -1] = 0;
+        if (scanf(tamaño, "%d", &cantidad) ==1);{
 
+            parr->pdata = malloc(parr->size * sizeof(int));
     }    
 
 
