@@ -69,7 +69,20 @@ void getArray(struct array *parr)
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
 {
-    
+   int size=0, i ,j, v1, v2, counter = 0;
+   int valores [10] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+
+   arrOut->size=0;
+
+   for(i = 0; i<arrIn1->size; j++)
+   {
+       for(j = 0; j<arrIn2->size; j++)
+       {
+           v1 = *(arrIn1->pdata+i);
+           v2 = *(arrIn2->pdata+j);
+
+           if(v1 == v2)
+           {
 }
 
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
