@@ -42,22 +42,24 @@ void printArray(struct array *parr)
 
 void getArray(struct array *parr)
 {
-    int tamaño; 
-    char cantidad[30];
+    int cantidad; 
+    char tamaño[30];
 
     if (fgets(tamaño, sizeof(tamaño), stdin) ! = NULL){
-        cantidad [strlen(tamaño) -1] = 0;
-        if (scanf(tamaño, "%d", &cantidad) ==1){
-     
-            parr->pdata = malloc(parr->size * sizeof(int));
-            parr->size = tamaño;
+        tamaño [strlen(tamaño) -1] = 0;
+        if (sscanf(tamaño, "%d", &cantidad) ==1){
 
-            for( i= 0; i< parr->size; i+1){
+     
+            parr->size = cantidad;
+            parr->pdata = malloc(parr->size * sizeof(int));
+            
+
+            for( i= 0; i< parr->size; i++){
 
                 if (fgets(tamaño, sizeof(tamaño), stdin) ! = NULL){
                     tamaño[strlen(tamaño) -1] = 0;
 
-                    if(scanf(tamaño, "%d", &cantidad) ==1){
+                    if(sscanf(tamaño, "%d", &cantidad) ==1){
                         *(parr->pdata+i) = cantidad; 
                     }
                 }
@@ -74,7 +76,7 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
 
    arrOut->size=0;
 
-   for(i = 0; i<arrIn1->size; j++)
+   for(i = 0; i<arrIn1->size; i++)
    {
        for(j = 0; j<arrIn2->size; j++)
        {
@@ -97,14 +99,19 @@ void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOu
                 if( condicional == 0)
                 {
                     arrOut->size++;
-                    valores [counter]=v1;
+                    valores[counter] = v1;
                     counter++;
                 }   
             }
         }
     }  
 
-                    
+    arrOut->pdata = malloc(arrOut->size * sizeof(int));
+
+    for(i = 0; i<arrOut->size; i++)
+    {
+        *(arrOut->pdata+i)=valores[i];
+    }  
 
 }
 
