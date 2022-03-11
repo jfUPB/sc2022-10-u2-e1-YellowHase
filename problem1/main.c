@@ -23,25 +23,96 @@ void freeMemory(struct array *, struct array *, struct array *);
 void initArray(struct array *arr){
     arr->pdata = NULL;
     arr->size = -1;
+    
 }
 
 void printArray(struct array *parr)
 {
+   
+
     for (int i = 0; i < parr->size; i++)
     {
         printf("%d ", parr->pdata[i]);
     }
     printf("\n");
+
+    
+    
 }
 
 void getArray(struct array *parr)
 {
-    
+    int cantidad; 
+    char tamano[30];
+
+    if (fgets(tamano, sizeof(tamano), stdin)!= NULL){
+        tamano [strlen(tamano) -1] = 0;
+        if (sscanf(tamano, "%d", &cantidad) ==1){
+
+     
+            parr->size = cantidad;
+            parr->pdata = malloc(parr->size * sizeof(int));
+            
+
+            for( int i= 0; i< parr->size; i++){
+
+                if (fgets(tamano, sizeof(tamano), stdin)!= NULL){
+                    tamano[strlen(tamano) -1] = 0;
+
+                    if(sscanf(tamano, "%d", &cantidad) ==1){
+                        *(parr->pdata+i) = cantidad; 
+                    }
+                }
+            }
+        }
+    }              
+
 }
 
 void arrayCommon(struct array *arrIn1, struct array *arrIn2, struct array *arrOut)
 {
-    
+   int size=0, i ,j, v1, v2, counter = 0;
+   int valores [10] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+
+   arrOut->size=0;
+
+   for(i = 0; i<arrIn1->size; i++)
+   {
+       for(j = 0; j<arrIn2->size; j++)
+       {
+           v1 = *(arrIn1->pdata+i);
+           v2 = *(arrIn2->pdata+j);
+
+           if(v1 == v2)
+           {
+               int condicional= 0;
+
+               for(int h=0; h<10; h++)
+               {
+                   if(v1 == valores[h])
+                   {
+                       h=10;
+                       condicional = -1;
+                    }
+                }
+
+                if( condicional == 0)
+                {
+                    arrOut->size++;
+                    valores[counter] = v1;
+                    counter++;
+                }   
+            }
+        }
+    }  
+
+    arrOut->pdata = malloc(arrOut->size * sizeof(int));
+
+    for(i = 0; i<arrOut->size; i++)
+    {
+        *(arrOut->pdata+i)=valores[i];
+    }  
+
 }
 
 void freeMemory(struct array *arr1, struct array *arr2, struct array *arr3)
